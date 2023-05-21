@@ -1,0 +1,1330 @@
+{
+	"info": {
+		"_postman_id": "0784608a-e10b-4ee0-adcb-bd98c858eeb0",
+		"name": "GoREST API",
+		"description": "## OVERVIEW\n\nThe **GoREST** API provides a free sandbox environment for performing REST API and GraphQL testing for prototyping. Registerd users provide fake user data, but the responses are real.\n\n## Who is the GoREST API for?\n\nThe audience for the \\[GoREST API\\]([http://gorest.co.in](http://gorest.co.in)) is developers who need an easy way to test REST API and GraphQL endpoints.\n\n## Authorization (Authentication)\n\nUsers are required to create an account.\n\nA Token Bearer is not required to GET all general user information, but all other specific requests require a Token Bearer.\n\n## Base URL\n\n[http://gorest.co.in](www.gorest.co.in)\n\n## Support\n\nIf you encounter any errors while using the API, please use the Help button at the top of the main screen to read our knowledge base. If your question has not been answered, feel free to post a new question. We’ll do our best to resolve the issue as soon as possible. Please keep in mind that we are located in the India Standard Time Zone (IST).\n\nIf you would like to contact us for any other reason, please use our contact form on the bottom of the main page.\n\n## Users Endpoint\n\nThe GoREST API provides user profiles with user id, name, email, gender and status. You can perform CRUD operations on all users.\n\n\\[Users Endpoint\\]([http://gorest.co.in/public/v2/users](https://gorest.co.in/public/v2/users))\n\nThe following request are allowed for the Users Endpoint:\n\n**GET, POST, PUT, PATCH, DELETE**\n\n| **Parameter Name** | **Data Type** | **Description** |\n| --- | --- | --- |\n| id | integer | Required. The id is generated automatically when a user is created. The id is required for PUT and DELETE methods.  <br>**Note:** You must use id for the GET method when requesting the user details with specific user id. |\n| name | string | Required. Used for creating a new user. The name is required for POST, PUT and PATCH. |\n| email | string | Required. The email is used for creating a new user. The email is required for POST, PUT and PATCH. |\n| status | string | Required. The status is used for creating a new user. The status is required for POST, PUT and PATCH. Available options include: active or inactive. |\n| gender | string | Required. The gender is used for creating a new user. The gender is required for POST. The available genders include: male or female. |\n\n## Posts Endpoint\n\nThe GoREST API provides posts with post id, user_id, title and body. You can perform CRUD operations on all posts.\n\n\\[Posts Endpoint\\]([http://gorest.co.in/public/v2/posts](https://gorest.co.in/public/v2/posts))\n\nThe following request are allowed for the Posts Endpoint:\n\n**GET, POST, PUT, PATCH, DELETE**\n\n| **Parameter Name** | **Data Type** | **Description** |\n| --- | --- | --- |\n| id | integer | Required. The id is generated automatically when a message is created. The id is required for PUT, PATCH and DELETE methods.  <br>**Note:** You must use id for the GET method when requesting post details with specific id. |\n| user_id | integer | Required. The user_id is required for POST, PUT, PATCH and DELETE . |\n| title | string | Required. The title is required for POST, PUT, PATCH and DELETE. |\n| body | string | Required. The body is required for POST, PUT, PATCH and DELETE. |\n\n## HTTP and Error Codes\n\nThe GoRest API returns HTTP status and error code messages.\n\n| **HTTP Code** | **Message** | **Description** |\n| --- | --- | --- |\n| 200 | OK | The request was successful. |\n| 201 | OK | A resource was successfully created in response to a POST request. The Location header contains the URL pointing to the newly created resource. |\n| 204 | OK | The request was handled successfully and the response contains no body content (like a DELETE request). |\n| 304 | OK | The resource was not modified. You can use the cached version. |\n| 400 | Bad Request | The request was invalid or missing a required parameter. |\n| 401 | Not Found | Authentication failed. |\n| 403 | Not Found | The authenticated user is not allowed to access the specified API endpoint. |\n| 404 | Not Found | The requested resource was not found. |\n| 405 | Not Found | Method not allowed. Please check the Allow header for the allowed HTTP methods. |\n| 415 | Not Found | Unsupported media type. The requested content type or version number is invalid. |\n| 422 | Not Found | Data validation failed (in response to a POST request, for example). Please check the response body for detailed error messages. |\n| 429 | Not Found | Too many requests. The request was rejected due to rate limiting. |\n| 500 | Internal Server Error | An error occurred on the server. |",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27172537"
+	},
+	"item": [
+		{
+			"name": "POST Request to Create User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "c70ed29bf8e84ef52aebe2d851b6b6568c37ab13f4be935838cd1e09e5fe5575",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Lucy La\",\n    \"email\": \"lucyla@gmail.com\",\n    \"gender\": \"female\",\n    \"status\": \"active\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example of POST Request to Create User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Lucy La\",\n    \"email\": \"lucyla@gmail.com\",\n    \"gender\": \"female\",\n    \"status\": \"active\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/users",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 03 May 2023 16:35:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"7055c41efceb953006e871a25f36f75e\""
+						},
+						{
+							"key": "location",
+							"value": "https://gorest.co.in/public/v2/users/1372024"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "vary",
+							"value": "Origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-permitted-cross-domain-policies",
+							"value": "none"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "90"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "89"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "x-request-id",
+							"value": "e54d02a1-a06b-4721-9b03-43636f8d6a8f"
+						},
+						{
+							"key": "x-runtime",
+							"value": "0.088812"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=pOeGqM%2Bz8Da8qynWUXuHCSmzdXOtobiX82EMoNVb6HPy%2FRNq4BxsJYhb7pUMesoQSxDK9BEmi%2BL564UUBS9S0xP4fWncGa5GM5ZjMJ88GhgbGSR51tFcpqBTAx%2BKTt8%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "7c19ea5c4d093b5a-IAD"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1372024,\n    \"name\": \"Lucy La\",\n    \"email\": \"lucyla@gmail.com\",\n    \"gender\": \"female\",\n    \"status\": \"active\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GET Request to Retrieve All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				},
+				"description": "This request retrievs **all** users using a generic **GET** request."
+			},
+			"response": [
+				{
+					"name": "Example of GET Request to Retrieve All Users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/users",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 01 May 2023 01:57:08 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"ac22af499e69a66023390cb0438efb5d\""
+						},
+						{
+							"key": "referrer-policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "vary",
+							"value": "Origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-links-current",
+							"value": "https://gorest.co.in/public/v2/users?page=1"
+						},
+						{
+							"key": "x-links-next",
+							"value": "https://gorest.co.in/public/v2/users?page=2"
+						},
+						{
+							"key": "x-links-previous",
+							"value": ""
+						},
+						{
+							"key": "x-pagination-limit",
+							"value": "10"
+						},
+						{
+							"key": "x-pagination-page",
+							"value": "1"
+						},
+						{
+							"key": "x-pagination-pages",
+							"value": "297"
+						},
+						{
+							"key": "x-pagination-total",
+							"value": "2964"
+						},
+						{
+							"key": "x-permitted-cross-domain-policies",
+							"value": "none"
+						},
+						{
+							"key": "x-request-id",
+							"value": "bcbd7cf2-d726-4f92-b337-42f1d3756842"
+						},
+						{
+							"key": "x-runtime",
+							"value": "0.040418"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=IF2kEYZwCmuDnIYK07XA5VzZ1SIAK6Qk9ReGU69SM3ep8lIbxtnHjJQnGwBklfpZPPg2tQSyDrseFO6qpX5RHXHDnnXucnOwbAwMFvxp8IT%2B7Uwqc5D2ub7CPFvbuyc%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "7c046970df53828a-IAD"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1313068,\n        \"name\": \"Mr. Aaratrika Ahluwalia\",\n        \"email\": \"mr_ahluwalia_aaratrika@renner-skiles.example\",\n        \"gender\": \"female\",\n        \"status\": \"inactive\"\n    },\n    {\n        \"id\": 1313067,\n        \"name\": \"Radha Ahuja\",\n        \"email\": \"radha_ahuja@schuppe.test\",\n        \"gender\": \"male\",\n        \"status\": \"inactive\"\n    },\n    {\n        \"id\": 1313065,\n        \"name\": \"Tapan Kaniyar\",\n        \"email\": \"kaniyar_tapan@bauch.example\",\n        \"gender\": \"male\",\n        \"status\": \"active\"\n    },\n    {\n        \"id\": 1313064,\n        \"name\": \"Aashritha Dubashi PhD\",\n        \"email\": \"phd_aashritha_dubashi@marks.test\",\n        \"gender\": \"female\",\n        \"status\": \"inactive\"\n    },\n    {\n        \"id\": 1313062,\n        \"name\": \"Swapnil Bandopadhyay DDS\",\n        \"email\": \"bandopadhyay_dds_swapnil@windler.test\",\n        \"gender\": \"female\",\n        \"status\": \"active\"\n    },\n    {\n        \"id\": 1313061,\n        \"name\": \"Sen. Navin Banerjee\",\n        \"email\": \"banerjee_sen_navin@weber.example\",\n        \"gender\": \"male\",\n        \"status\": \"active\"\n    },\n    {\n        \"id\": 1313060,\n        \"name\": \"Bhramar Dubashi\",\n        \"email\": \"bhramar_dubashi@cremin-oreilly.example\",\n        \"gender\": \"male\",\n        \"status\": \"active\"\n    },\n    {\n        \"id\": 1313059,\n        \"name\": \"Atmaja Shah\",\n        \"email\": \"atmaja_shah@marks-romaguera.test\",\n        \"gender\": \"male\",\n        \"status\": \"inactive\"\n    },\n    {\n        \"id\": 1313058,\n        \"name\": \"Bankimchandra Kaul\",\n        \"email\": \"bankimchandra_kaul@barrows.example\",\n        \"gender\": \"male\",\n        \"status\": \"active\"\n    },\n    {\n        \"id\": 1313057,\n        \"name\": \"Aaryan Banerjee\",\n        \"email\": \"aaryan_banerjee@satterfield.test\",\n        \"gender\": \"male\",\n        \"status\": \"inactive\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "GET Request to Retrieve User by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "c70ed29bf8e84ef52aebe2d851b6b6568c37ab13f4be935838cd1e09e5fe5575",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users?id=1315901",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1315901"
+						}
+					]
+				},
+				"description": "This request uses GET to retrieve the specific user by _**id**_**.**\n\nRequired. The ID is generated automatically when a user is created. The ID is required for PUT and DELETE methods.  \n**Note:** You must use ID for GET method when requesting the user details with specific user ID."
+			},
+			"response": [
+				{
+					"name": "Example of GET Request to Retrieve User by ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/users?id=1315901",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1315901"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 01 May 2023 01:44:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"ed64b76bf200c7c180f869f7c5f518bf\""
+						},
+						{
+							"key": "referrer-policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "vary",
+							"value": "Origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-links-current",
+							"value": "https://gorest.co.in/public/v2/users?page=1"
+						},
+						{
+							"key": "x-links-next",
+							"value": ""
+						},
+						{
+							"key": "x-links-previous",
+							"value": ""
+						},
+						{
+							"key": "x-pagination-limit",
+							"value": "10"
+						},
+						{
+							"key": "x-pagination-page",
+							"value": "1"
+						},
+						{
+							"key": "x-pagination-pages",
+							"value": "1"
+						},
+						{
+							"key": "x-pagination-total",
+							"value": "1"
+						},
+						{
+							"key": "x-permitted-cross-domain-policies",
+							"value": "none"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "90"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "89"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "x-request-id",
+							"value": "e5eff6a6-c1fb-4313-b557-b9bed85707f0"
+						},
+						{
+							"key": "x-runtime",
+							"value": "0.065825"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=WKrel62CzcYK3PoMnMXc7ZsdJZK54GMNALWM2WR5nNozrkd6OYD0aIm%2BS%2FWJh2eRXyx3FakkHYwEX7rYS4%2FjYaeax4968gJzL4H2cqMyMVmDfAWHUrKM4Gbrsvt3Pkk%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "7c045749096b2412-IAD"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1315901,\n        \"name\": \"Nice People\",\n        \"email\": \"nicepeople@gmail.com\",\n        \"gender\": \"female\",\n        \"status\": \"active\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "GET Request to Retrieve User by Email",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "c70ed29bf8e84ef52aebe2d851b6b6568c37ab13f4be935838cd1e09e5fe5575",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users?email=nicepeople@gmail.com",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "nicepeople@gmail.com"
+						}
+					]
+				},
+				"description": "This request uses GET to retrieve a specific user by _**email**_.\n\nRequired. The email is used for creating a new user. The email is required for POST, PUT and PATCH."
+			},
+			"response": [
+				{
+					"name": "Example of GET Request to Retrieve User by Email",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/users?email=nicepeople@gmail.com",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "nicepeople@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 01 May 2023 02:15:17 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"ed64b76bf200c7c180f869f7c5f518bf\""
+						},
+						{
+							"key": "referrer-policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "vary",
+							"value": "Origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-links-current",
+							"value": "https://gorest.co.in/public/v2/users?page=1"
+						},
+						{
+							"key": "x-links-next",
+							"value": ""
+						},
+						{
+							"key": "x-links-previous",
+							"value": ""
+						},
+						{
+							"key": "x-pagination-limit",
+							"value": "10"
+						},
+						{
+							"key": "x-pagination-page",
+							"value": "1"
+						},
+						{
+							"key": "x-pagination-pages",
+							"value": "1"
+						},
+						{
+							"key": "x-pagination-total",
+							"value": "1"
+						},
+						{
+							"key": "x-permitted-cross-domain-policies",
+							"value": "none"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "90"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "89"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "x-request-id",
+							"value": "ddbf2da3-0142-4cce-a8c5-5fcf7639c918"
+						},
+						{
+							"key": "x-runtime",
+							"value": "0.107262"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=qzs09IcdbPFWjE%2BaPWuSKMHl0hhsIXTain3kUf4UH3tcgCgvEQmhJpb5D6ZP1XGVbwKI9RoG1gMirhkhEG3k%2B2P%2FZImJ8InFPmYUO7nxeV9jdGrrQmhI6NYgwD4ckHU%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "7c04840ded6d3903-IAD"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1315901,\n        \"name\": \"Nice People\",\n        \"email\": \"nicepeople@gmail.com\",\n        \"gender\": \"female\",\n        \"status\": \"active\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "PUT Request to Update Data",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6c7df451fe299bba70bfce4e258e4b0991faa97c7b6b8595d7e1822bdedc2b4f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1318190,\n    \"name\": \"NicePeople4\",\n    \"email\": \"nicepeople4@gmail.com\",\n    \"gender\": \"female\",\n    \"status\": \"active\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/1318190",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"1318190"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1318190",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "NicePeople3",
+							"disabled": true
+						}
+					]
+				},
+				"description": "You can use PUT method to modify the user details.\n\n**Note**: ID value must be passed in the URL.\n\n**Example**[:](https://gorest.co.in/public/v2/users/<id>All)\n\n[https://gorest.co.in/public/v2/users/](https://gorest.co.in/public/v2/users/<id>All)\n\nAll other parameters you want to modify can be passed in the Body as a JSON structure. Refer to the response example."
+			},
+			"response": [
+				{
+					"name": "Example of PUT Request to Update Data",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1318190,\n    \"name\": \"NicePeople4\",\n    \"email\": \"nicepeople4@gmail.com\",\n    \"gender\": \"female\",\n    \"status\": \"active\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/users/1318190",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users",
+								"1318190"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1318190",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "NicePeople3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 03 May 2023 17:10:43 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"b805c070552c7aeea8f88a3fdeb723a7\""
+						},
+						{
+							"key": "referrer-policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "vary",
+							"value": "Origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-permitted-cross-domain-policies",
+							"value": "none"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "90"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "89"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "x-request-id",
+							"value": "7815f473-e99f-4346-9089-feeb434b0363"
+						},
+						{
+							"key": "x-runtime",
+							"value": "0.122526"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=8M5YVUB9ESYVzQ4QwIcKt1NNLYDwd2UubAZZZ6SPJ6BNfL7tGci0aTprpwDOzyuZmW2R6Kp8Pic%2BPAxC%2FnWrNgENrQycEPHIhvwuov%2B9wccbuRaubGxEBs79rIAMboQ%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "7c1a1e724b9f3910-IAD"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"nicepeople4@gmail.com\",\n    \"name\": \"NicePeople4\",\n    \"gender\": \"female\",\n    \"status\": \"active\",\n    \"id\": 1318190\n}"
+				}
+			]
+		},
+		{
+			"name": "POST Request to Make a Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6c7df451fe299bba70bfce4e258e4b0991faa97c7b6b8595d7e1822bdedc2b4f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1372024,\n    \"title\": \"How to Have a Nice Day\",\n    \"body\": \"Get at least 8 hours sleep to start.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/posts",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"posts"
+					]
+				},
+				"description": "This request uses **POST** to make a post."
+			},
+			"response": [
+				{
+					"name": "Example of POST Request to Make a Post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1372024,\n    \"title\": \"How to Have a Nice Day\",\n    \"body\": \"Get at least 8 hours sleep to start.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/posts",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"posts"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 03 May 2023 17:30:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"5601b9afcb0ddef0d45bd905c5a8cb12\""
+						},
+						{
+							"key": "location",
+							"value": "https://gorest.co.in/public/v2/posts/18164"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "vary",
+							"value": "Origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-permitted-cross-domain-policies",
+							"value": "none"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "90"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "89"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "x-request-id",
+							"value": "a9c03d02-d0ac-4174-ad1a-0d67f328e5c8"
+						},
+						{
+							"key": "x-runtime",
+							"value": "0.085344"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=EuDNvWrowoznkeHkppjesH1bbAfUwKieJk9oar0YK6WiVBTj3SgCN2ecpR9m9wrNtCbg%2F8bd%2BfrZLP8DRx69DVvrYC67yDjUqx45DEqPAdaie5NhY2FZxTErBetDG9w%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "7c1a3bd0ae4f82d4-IAD"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 18164,\n    \"user_id\": 1372024,\n    \"title\": \"How to Have a Nice Day\",\n    \"body\": \"Get at least 8 hours sleep to start.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "PUT Request to Update a Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6c7df451fe299bba70bfce4e258e4b0991faa97c7b6b8595d7e1822bdedc2b4f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1372024,\n    \"title\": \"How to Enjoy Each Day\",\n    \"body\": \"Get at least 10 hours sleep to start.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/posts/18164",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"posts",
+						"18164"
+					]
+				},
+				"description": "This reques uses **PUT** to update a post."
+			},
+			"response": [
+				{
+					"name": "Example of PUT Request to Update a Post",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1372024,\n    \"title\": \"How to Enjoy Each Day\",\n    \"body\": \"Get at least 10 hours sleep to start.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/posts/18164",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"posts",
+								"18164"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 03 May 2023 17:55:29 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"6276da804b7daca366919ceb06a52000\""
+						},
+						{
+							"key": "referrer-policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "vary",
+							"value": "Origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-permitted-cross-domain-policies",
+							"value": "none"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "90"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "89"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "x-request-id",
+							"value": "329a20b7-0616-43e4-a323-586c86112665"
+						},
+						{
+							"key": "x-runtime",
+							"value": "0.085525"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=vFcvD0q%2FQvYgyjAoSy6jM%2B8bN%2FugoNFrWMdJLbSdwcs4m%2FbnQyGp31DnEPqc1r9CJzyhx%2B3ffERLtVMvBIj3sbAjfRm5rhgvGQnzZujS71WVVTvPeHUHZAig963018w%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "7c1a600ccd522430-IAD"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user_id\": 1372024,\n    \"title\": \"How to Enjoy Each Day\",\n    \"body\": \"Get at least 10 hours sleep to start.\",\n    \"id\": 18164\n}"
+				}
+			]
+		}
+	]
+}

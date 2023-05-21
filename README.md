@@ -1,7 +1,13 @@
 # My-Postman
 This repo contains my Postman work.
 
-## API Documentation Class Assignment #1
+
+
+![Postman Badge](Postman Badge.png)
+
+## GoREST API Documentation
 GoREST API Documentation in Postman
 
+## Postman API Fundamentals Exam
+Postman API Fundamentals Exam
 

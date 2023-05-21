@@ -1,9 +1,9 @@
 # My-Postman
 This repo contains my Postman work.
 
+![Postman Badge](Badge.jpg)
 
 
-![Postman Badge](Postman Badge.png)
 
 ## GoREST API Documentation
 GoREST API Documentation in Postman
